@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tết Nhà Trường - Xuân Ất Tỵ 2025</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            overflow-x: hidden;
+        }
+
+        /* Header với hiệu ứng động */
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1545558014-23820788d6b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .header h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: fadeInDown 1.5s;
+        }
+
+        .header p {
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.5s;
+        }
+
+        .header::before {
+            content: '🎋';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            animation: swing 2s infinite;
+        }
+
+        .header::after {
+            content: '🎍';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 4rem;
+            animation: swing 2s infinite reverse;
+        }
+
+        /* Navigation */
+        .nav {
+            background: #c2410c;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background: #fbbf24;
+            color: #7b341e;
+            transform: scale(1.1);
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Phần Giới thiệu */
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .intro-content {
+            padding: 3rem;
+        }
+
+        .intro-content h2 {
+            color: #b45309;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .intro-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #fbbf24, #dc2626);
+        }
+
+        .intro-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin: 2rem 0;
+        }
+
+        .intro-image {
+            background: url('https://images.unsplash.com/photo-1513884923967-4b182ef167ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+
+        /* Phần Sự kiện */
+        .events {
+            margin: 4rem 0;
+        }
+
+        .events h2 {
+            text-align: center;
+            color: #b45309;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .events h2::before {
+            content: '🌸';
+            margin-right: 1rem;
+        }
+
+        .events h2::after {
+            content: '🌸';
+            margin-left: 1rem;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-card h3 {
+            color: #b45309;
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+
+        .event-card p {
+            padding: 0 1rem 1rem;
+            color: #4b5563;
+        }
+
+        .event-date {
+            background: #fef3c7;
+            padding: 0.5rem 1rem;
+            color: #b45309;
+            font-weight: bold;
+        }
+
+        /* Phần Hoạt động */
+        .activities {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .activities h2 {
+            text-align: center;
+            color: #b45309;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .activity-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .activity-item {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid #fbbf24;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .activity-item:hover {
+            background: #fef3c7;
+            transform: scale(1.05);
+        }
+
+        .activity-item i {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .activity-item h3 {
+            color: #b45309;
+            margin-bottom: 1rem;
+        }
+
+        /* Phần Liên hệ */
+        .contact {
+            background: linear-gradient(135deg, #b45309, #dc2626);
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            margin: 4rem 0;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fbbf24;
+        }
+
+        .contact-item p {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #7b341e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .social-icons {
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #fbbf24;
+        }
+
+        /* Hiệu ứng trang trí */
+        .floating-flowers {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 6s infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes swing {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(20deg);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+
+            .header p {
+                font-size: 1.2rem;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hoa nổi trang trí -->
+    <div class="floating-flowers">
+        <div class="flower" style="top: 10%; left: 5%;">🌸</div>
+        <div class="flower" style="top: 20%; right: 10%;">🌺</div>
+        <div class="flower" style="bottom: 15%; left: 8%;">🏵️</div>
+        <div class="flower" style="bottom: 25%; right: 5%;">🌼</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>CHÀO XUÂN ẤT TỴ 2025</h1>
+        <p>Tết Nhà Trường - Gắn Kết Yêu Thương</p>
+        <div style="margin-top: 2rem; animation: fadeInUp 2s;">
+            <a href="#contact" style="background: #fbbf24; color: #7b341e; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; margin-right: 1rem;">Tham Gia Ngay</a>
+            <a href="#events" style="background: transparent; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; border: 2px solid white;">Xem Sự Kiện</a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Trang Chủ</a></li>
+            <li><a href="#intro"><i class="fas fa-info-circle"></i> Giới Thiệu</a></li>
+            <li><a href="#events"><i class="fas fa-calendar"></i> Sự Kiện</a></li>
+            <li><a href="#activities"><i class="fas fa-star"></i> Hoạt Động</a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i> Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <div class="container">
+        <!-- Phần Giới thiệu -->
+        <section id="intro" class="intro">
+            <div class="intro-content">
+                <h2>Tết Nhà Trường Là Gì?</h2>
+                <p>Tết Nhà Trường là dịp đặc biệt để thầy cô, học sinh và phụ huynh cùng nhau đón chào năm mới trong không khí ấm áp, thân thương. Đây là cơ hội để chúng ta nhìn lại một năm học đã qua, tri ân những đóng góp của thầy cô, và cùng nhau hướng tới một năm mới nhiều thành công.</p>
+                <p>Năm 2025 - năm Ất Tỵ, hứa hẹn sẽ mang đến nhiều điều tốt lành, may mắn và thịnh vượng cho tất cả chúng ta.</p>
+                <a href="#" style="display: inline-block; background: #b45309; color: white; padding: 0.8rem 2rem; border-radius: 25px; text-decoration: none; margin-top: 1rem;">Đọc Thêm <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="intro-image"></div>
+        </section>
+
+        <!-- Phần Sự kiện -->
+        <section id="events" class="events">
+            <h2>Sự Kiện Nổi Bật</h2>
+            <div class="event-grid">
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1522156373667-4c7234bbd804?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Hội chợ Xuân">
+                    <div class="event-date">📅 15-20/01/2025</div>
+                    <h3>Hội Chợ Xuân</h3>
+                    <p>Gian hàng ẩm thực, trò chơi dân gian, và nhiều hoạt động thú vị dành cho học sinh.</p>
+                </div>
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Văn nghệ">
+                    <div class="event-date">📅 22/01/2025</div>
+                    <h3>Đêm Văn Nghệ "Mùa Xuân Và Tuổi Học Trò"</h3>
+                    <p>Chương trình ca nhạc đặc sắc với sự tham gia của các tài năng trẻ trong trường.</p>
+                </div>
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1541250848049-b4f7141dca3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Gói bánh chưng">
+                    <div class="event-date">📅 23/01/2025</div>
+                    <h3>Hội Thi Gói Bánh Chưng</h3>
+                    <p>Cùng nhau gói bánh chưng xanh, tìm hiểu về phong tục ngày Tết.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Hoạt động -->
+        <section id="activities" class="activities">
+            <h2>Hoạt Động Chính</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Thi Vẽ Tranh</h3>
+                    <p>Chủ đề "Mùa Xuân Và Mái Trường" dành cho học sinh các khối lớp.</p>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-gift"></i>
+                    <h3>Quà Tặng Yêu Thương</h3>
+                    <p>Trao quà cho học sinh có hoàn cảnh khó khăn nhân dịp Tết.</p>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-camera"></i>
+                    <h3>Cuộc Thi Ảnh</h3>
+                    <p>Ghi lại khoảnh khắc đẹp về Tết và mái trường.</p>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-music"></i>
+                    <h3>Liên Hoan Văn Nghệ</h3>
+                    <p>Các tiết mục văn nghệ chào xuân từ các lớp.</p>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Trò Chơi Dân Gian</h3>
+                    <p>Kéo co, nhảy bao bố, bịt mắt đập niêu...</p>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Ẩm Thực Ngày Tết</h3>
+                    <p>Thưởng thức các món ăn truyền thống ngày Tết.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Liên hệ -->
+        <section id="contact" class="contact">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Trường THPT Nguyễn Huệ<br>123 Đường Lê Lợi, TP. Hồ Chí Minh</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>028 3829 1234<br>028 3829 5678</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>tetnhatruong@nh-school.edu.vn<br>www.nh-school.edu.vn/tet2025</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Tết Nhà Trường - Trường THPT Nguyễn Huệ</p>
+        <p>Địa chỉ: 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>Email: tetnhatruong@nh-school.edu.vn - Hotline: 028 3829 1234</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Thiết kế bởi Nhóm Học Sinh Trường THPT Nguyễn Huệ - Chào Xuân Ất Tỵ 2025</p>
+    </footer>
+
+    <!-- Smooth scroll script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hiệu ứng scroll navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = '#9a3412';
+            } else {
+                nav.style.background = '#c2410c';
+            }
+        });
+    </script>
+</body>
+</html>
